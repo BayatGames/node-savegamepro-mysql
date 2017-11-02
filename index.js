@@ -66,7 +66,7 @@ module.exports = function (request, response, next) {
           username varchar(60) NOT NULL UNIQUE KEY COMMENT 'Username',
           password varchar(255) DEFAULT NULL COMMENT 'Password',
           type varchar(60) NOT NULL DEFAULT 'user' COMMENT 'Account Type',
-          registered datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Registration Date'
+          registered datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Registration Date'
         )`, (err, results) => {
           if (err) throw err;
           connection.query(`CREATE TABLE IF NOT EXISTS saves (
